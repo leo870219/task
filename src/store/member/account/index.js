@@ -13,7 +13,7 @@ const modules = {
     actions: {
       async getAccountList({ commit }) {
         try {
-          const res = await axios.get("http://localhost:3000/accountList");
+          const res = await axios.get("https://task-api-vercel-six.vercel.app/accountList");
           if (res.status === 200) {
             commit("setAccountList", res.data);
           }
@@ -23,7 +23,7 @@ const modules = {
       },
       async addAccount({ dispatch }, data) {
         try {
-          const res = await axios.post("http://localhost:3000/accountList", data);
+          const res = await axios.post("https://task-api-vercel-six.vercel.app/accountList", data);
           if (res.status === 201) {
             dispatch("getAccountList");
           }
@@ -34,7 +34,7 @@ const modules = {
       async updateAccount({ dispatch }, data) {
         try {
           const res = await axios.put(
-            `http://localhost:3000/accountList/${data.id}`,
+            `https://task-api-vercel-six.vercel.app/accountList/${data.id}`,
             data
           );
           if (res.status === 200) {
@@ -47,7 +47,7 @@ const modules = {
       async deleteAccount({ dispatch }, id) {
         try {
           const res = await axios.delete(
-            `http://localhost:3000/accountList/${id}`
+            `https://task-api-vercel-six.vercel.app/accountList/${id}`
           );
           if (res.status === 200) {
             dispatch("getAccountList");

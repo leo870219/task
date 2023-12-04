@@ -13,7 +13,7 @@ const modules = {
     actions: {
       async getProductList({ commit }) {
         try {
-          const res = await axios.get("http://localhost:3000/productList");
+          const res = await axios.get("https://task-api-vercel-six.vercel.app/productList");
           if (res.status === 200) {
             commit("setProductList", res.data);
           }
@@ -23,7 +23,7 @@ const modules = {
       },
       async addProduct({ dispatch }, data) {
         try {
-          const res = await axios.post("http://localhost:3000/productList", data);
+          const res = await axios.post("https://task-api-vercel-six.vercel.app/productList", data);
           if (res.status === 201) {
             dispatch("getProductList");
           }
@@ -34,7 +34,7 @@ const modules = {
       async updateProduct({ dispatch }, data) {
         try {
           const res = await axios.put(
-            `http://localhost:3000/productList/${data.id}`,
+            `https://task-api-vercel-six.vercel.app/productList/${data.id}`,
             data
           );
           if (res.status === 200) {
@@ -47,7 +47,7 @@ const modules = {
       async deleteProduct({ dispatch }, id) {
         try {
           const res = await axios.delete(
-            `http://localhost:3000/productList/${id}`
+            `https://task-api-vercel-six.vercel.app/productList/${id}`
           );
           if (res.status === 200) {
             dispatch("getProductList");
@@ -59,7 +59,7 @@ const modules = {
       async changeProductOrder({ dispatch }, [currentData, targetData]) {
         try {
           const res1 = await axios.put(
-            `http://localhost:3000/productList/${currentData.id}`,
+            `https://task-api-vercel-six.vercel.app/productList/${currentData.id}`,
             {
               name: targetData.name,
               price: targetData.price,
@@ -67,7 +67,7 @@ const modules = {
             }
           );
           const res2 = await axios.put(
-            `http://localhost:3000/productList/${targetData.id}`,
+            `https://task-api-vercel-six.vercel.app/productList/${targetData.id}`,
             {
               name: currentData.name,
               price: currentData.price,
